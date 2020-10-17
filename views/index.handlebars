@@ -3,27 +3,27 @@
 <h2>Create a Burger</h2>
 
 <form class="create-form">
-
+{{!-- // User chooses if they would like to select a burger to eat now or save for later.  --}}
   <div class="form-group">
     <label for="ca">Name of creation: </label>
     <input type="text" id="ca" name="name">
   </div>
-
+{{!-- //Choose devour burger and append the burger to a new column in database and dynamically display to the page.  --}}
   <div class="form-group">
-    <label for="sleepy">Satisfy hunger now or later</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Save for Later<br>
-    <input type="radio" name="sleepy" value="0"> Devour Now
+    <label for="devoured">Satisfy hunger now or later</label><br>
+    <input type="radio" name="name" value="1" checked> Save for Later<br>
+    <input type="radio" name="name" value="0"> Devour Now
   </div>
 
   <button type="submit">Add Burger</button>
 </form>
 
 <h2>Devoured Burgers!</h2>
-
+{{!-- // Burgers saved/devoured communicates with our burger database.  --}}
 <ul>
   {{#each burgers}}
-  {{#unless sleepy}}
-  {{> burgers/burger-block sleep=true}}
+  {{#unless devoured}}
+  {{> burgers/burger-block burger=true}}
   {{/unless}}
   {{/each}}
 </ul>
@@ -32,8 +32,8 @@
 
 <ul>
   {{#each burgers}}
-  {{#if sleepy}}
-  {{> burgers/burger-block sleep=false}}
+  {{#if devoured}}
+  {{> burgers/burger-block burger=false}}
   {{/if}}
   {{/each}}
 </ul>
