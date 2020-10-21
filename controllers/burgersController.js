@@ -1,11 +1,12 @@
+//globals
 var express = require("express");
-
 var router = express.Router();
 
-// Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+//Default the route to /burger (Main Page)
+
+//Get Burgers
 router.get("/", function (req, res) {
   burger.all(function (data) {
     var hbsObject = {
@@ -16,7 +17,9 @@ router.get("/", function (req, res) {
   });
 });
 
+
 router.post("/api/burgers", function (req, res) {
+  req.body.devoured = 0;
   burger.create([
     "burger_name", "devoured"
   ], [
@@ -24,6 +27,7 @@ router.post("/api/burgers", function (req, res) {
   ], function (result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
+
   });
 });
 
@@ -31,9 +35,11 @@ router.put("/api/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
+  console.log(req.body);
+
 
   burger.update({
-    name: req.body.devoured
+    devoured: req.body.devoured
   }, condition, function (result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
@@ -43,6 +49,7 @@ router.put("/api/burgers/:id", function (req, res) {
     }
   });
 });
+
 
 router.delete("/api/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
@@ -57,5 +64,5 @@ router.delete("/api/burgers/:id", function (req, res) {
   });
 });
 
-// Export routes for server.js to use.
+// Export routes for server.js to use. 
 module.exports = router;

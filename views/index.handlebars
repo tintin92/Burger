@@ -1,40 +1,40 @@
 <h1>Burger Lab!</h1>
 
-<h2>Create a Burger</h2>
+<div class="row-text center">
+  <div class="col">
+    <h2 class="devoured">Add a Burger</h2>
+    <form class="create-form">
 
-<form class="create-form">
-{{!-- // User chooses if they would like to select a burger to eat now or save for later.  --}}
-  <div class="form-group">
-    <label for="ca">Name of creation: </label>
-    <input type="text" id="ca" name="name">
+      <div class="form-group list">
+        <label for="bu">Burger Name: </label>
+        <input type="text" id="bu" name="name">
+      </div>
+      <button type="submit">Add Burger</button>
+    </form>
   </div>
-{{!-- //Choose devour burger and append the burger to a new column in database and dynamically display to the page.  --}}
-  <div class="form-group">
-    <label for="devoured">Satisfy hunger now or later</label><br>
-    <input type="radio" name="name" value="1" checked> Save for Later<br>
-    <input type="radio" name="name" value="0"> Devour Now
+</div>
+
+<div class="row justify-content-md-center mt-5">
+  <div class="col-md-5">
+    <h2 class="devoured text-center">Your Burger Creation</h2>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
+
+      {{/unless}}
+      {{/each}}
+    </ul>
   </div>
+  <div class="col-md-4">
+    <h2 class="devoured text-center">Devoured burgers!</h2>
+    <ul>
+      {{#each burgers}}
+      {{#if devoured}}
+      {{!-- {{> burgers/burger-block devoured=false}} --}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
 
-  <button type="submit">Add Burger</button>
-</form>
-
-<h2>Devoured Burgers!</h2>
-{{!-- // Burgers saved/devoured communicates with our burger database.  --}}
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  {{> burgers/burger-block burger=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers ready to Devour!</h2>
-
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  {{> burgers/burger-block burger=false}}
-  {{/if}}
-  {{/each}}
-</ul>
-
+</main>

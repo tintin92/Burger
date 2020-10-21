@@ -48,37 +48,37 @@ Having an active and healthy commit history on GitHub is important for your futu
 
 #### App Setup
 
-1. Create a GitHub repo called `burger` and clone it to your computer.
+[x] 1. Create a GitHub repo called `burger` and clone it to your computer.
 
-2. Make a package.json file by running `npm init` from the command line.
+[x]2. Make a package.json file by running `npm init` from the command line.
 
-3. Install the Express npm package: `npm install express`.
+[x] 3. Install the Express npm package: `npm install express`.
 
-4. Create a server.js file.
+[x] 4. Create a server.js file.
 
-5. Install the Handlebars npm package: `npm install express-handlebars`.
+[x] 5. Install the Handlebars npm package: `npm install express-handlebars`.
 
-6. Install MySQL npm package: `npm install mysql`.
+[x] 6. Install MySQL npm package: `npm install mysql`.
 
-7. Require the following npm packages inside of the server.js file:
+[x] 7. Require the following npm packages inside of the server.js file:
    * express
 
 #### DB Setup
 
-1. Inside your `burger` directory, create a folder named `db`.
+[x]1. Inside your `burger` directory, create a folder named `db`.
 
-2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
+[x]2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
 
-   * Create the `burgers_db`.
-   * Switch to or use the `burgers_db`.
-   * Create a `burgers` table with these fields:
-     * **id**: an auto incrementing int that serves as the primary key.
-     * **burger_name**: a string.
-     * **devoured**: a boolean.
+   [x]* Create the `burgers_db`.
+   [x]* Switch to or use the `burgers_db`.
+   [x]* Create a `burgers` table with these fields:
+     [x]* **id**: an auto incrementing int that serves as the primary key.
+     [x]* **burger_name**: a string.
+     [x]* **devoured**: a boolean.
 
-3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+[x]3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
 
-4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
+[x]4. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
 
 5. Now you're going to run these SQL files.
 
@@ -96,15 +96,15 @@ Having an active and healthy commit history on GitHub is important for your futu
 
 1. Inside your `burger` directory, create a folder named `config`.
 
-2. Create a `connection.js` file inside `config` directory.
+[X]2. Create a `connection.js` file inside `config` directory.
 
    * Inside the `connection.js` file, setup the code to connect Node to MySQL.
 
    * Export the connection.
 
-3. Create an `orm.js` file inside `config` directory.
+3. [X]Create an `orm.js` file inside `config` directory.
 
-   * Import (require) `connection.js` into `orm.js`
+   [X] * Import (require) `connection.js` into `orm.js`
 
    * In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
 
