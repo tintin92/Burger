@@ -23,7 +23,7 @@ var burger = {
   
   delete: function (objColVals, condition, cb) {
     orm.delete("burgers", condition, function (res) {
-      cb(result);
+      cb(res);
       
     });
   }
